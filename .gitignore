@@ -10,3 +10,5 @@ coverage/
 *.sqlite-*
 .DS_Store
 *.log
+
+data/
