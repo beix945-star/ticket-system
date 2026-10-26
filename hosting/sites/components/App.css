@@ -1,0 +1,710 @@
+/* 页面容器：限制宽度，同时让手机屏幕保留左右间距。 */
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  border-bottom: 1px solid #dce4df;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 700;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: #235c53;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.workspace-name {
+  font-size: 13px;
+  color: #687a73;
+}
+.page-heading {
+  padding: 64px 0 48px;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4d746a;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -1px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.page-description {
+  color: #667b73;
+  font-size: 15px;
+  margin-top: 16px;
+  line-height: 1.8;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+h2 {
+  font-size: 17px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+h2 span {
+  display: inline-grid;
+  place-items: center;
+  background: #e5ebe6;
+  min-width: 26px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.sample-label {
+  color: #687a73;
+  font-size: 12px;
+}
+
+/* 每一张卡片共用一套样式，内容由 React 传入。 */
+.ticket-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 18px;
+}
+.ticket-card {
+  background: #fff;
+  border: 1px solid #dce4df;
+  border-radius: 14px;
+  padding: 24px;
+}
+.ticket-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.ticket-id {
+  font-size: 12px;
+  color: #718078;
+  font-variant-numeric: tabular-nums;
+}
+h3 {
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.ticket-description {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #66776f;
+  margin-top: 12px;
+  min-height: 76px;
+  overflow-wrap: anywhere;
+}
+.ticket-date {
+  font-size: 11px;
+  color: #697970;
+  border-top: 1px solid #edf0ed;
+  padding-top: 18px;
+  margin-top: 24px;
+}
+
+/* 状态同时用文字和颜色表达，避免只依赖颜色。 */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status-pending {
+  background: #fff4df;
+  color: #896016;
+}
+.status-processing {
+  background: #e9f1ff;
+  color: #3b64a4;
+}
+.status-completed {
+  background: #e8f4ed;
+  color: #34724e;
+}
+footer {
+  padding: 38px 0;
+  font-size: 11px;
+  color: #728078;
+}
+
+/* 屏幕较小时，三列卡片变成一列。 */
+@media (max-width: 800px) {
+  .ticket-list {
+    grid-template-columns: 1fr;
+  }
+  .ticket-description {
+    min-height: auto;
+  }
+  .ticket-meta {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 0 20px;
+  }
+  .site-header {
+    height: 78px;
+  }
+  .page-heading {
+    padding: 40px 0 32px;
+  }
+  .ticket-card {
+    padding: 20px;
+  }
+  .workspace-name {
+    font-size: 11px;
+  }
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #dce4df;
+  border-radius: 8px;
+  padding: 9px 14px;
+  background: white;
+  color: #31574b;
+  font-size: 13px;
+}
+button:hover {
+  background: #eaf1ed;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #26846b;
+  outline-offset: 3px;
+}
+.primary {
+  background: #235c53;
+  border-color: #235c53;
+  color: #fff;
+}
+.primary:hover {
+  background: #19463f;
+}
+.full {
+  width: 100%;
+}
+.muted {
+  color: #7a8b81;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.login-layout {
+  max-width: 1120px;
+  margin: auto;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 90px;
+  padding: 45px;
+}
+.login-intro h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.4;
+  letter-spacing: -2px;
+}
+.login-intro > p {
+  font-size: 15px;
+  line-height: 2;
+  color: #6d8278;
+  margin-top: 24px;
+}
+.flow {
+  display: flex;
+  gap: 24px;
+  margin-top: 50px;
+  font-size: 11px;
+  color: #769084;
+}
+.auth-card {
+  padding: 36px;
+  border: 1px solid #dae4db;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 70px #1a46380a;
+}
+.auth-card h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.auth-card label,
+form label {
+  display: block;
+  margin: 18px 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #526c5e;
+}
+input,
+textarea,
+select {
+  color: #294e40;
+  background: white;
+  border: 1px solid #d6e1d8;
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 13px;
+  max-width: 100%;
+}
+label input,
+label textarea,
+label select {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+}
+textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+.auth-card .primary {
+  margin-top: 22px;
+}
+.text-button {
+  display: block;
+  margin: 14px auto 0;
+  border: 0;
+  background: none;
+  color: #57786b;
+}
+.auth-note {
+  margin-top: 23px;
+  padding-top: 18px;
+  border-top: 1px solid #eef1ed;
+  line-height: 1.8;
+  font-size: 11px;
+  color: #88988c;
+}
+.error {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #fff0e9;
+  color: #9b442c;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+.error button {
+  margin-left: 10px;
+}
+.account {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 13px;
+}
+.account small {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #e2ebe4;
+  color: #577665;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 45px 0 32px;
+}
+.page-heading > .primary {
+  white-space: nowrap;
+  padding: 12px 19px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 21px 24px;
+  text-align: left;
+  background: #fff;
+  border-radius: 12px;
+}
+.stat strong {
+  margin-left: auto;
+  font-size: 29px;
+  font-weight: 600;
+  color: #234a3c;
+}
+.stat.selected {
+  border-color: #468a70;
+  box-shadow: 0 0 0 1px #468a70;
+}
+.stat .pending {
+  color: #d4a23b;
+}
+.stat .processing {
+  color: #5a8ec2;
+}
+.stat .completed {
+  color: #5e9a73;
+}
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.filters form {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+.filters input {
+  min-width: 0;
+  flex: 1;
+}
+.ticket-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  height: 100%;
+  color: inherit;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.ticket-card:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #285b3510;
+  border-color: #97b4a1;
+}
+.ticket-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+.card-tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 10px;
+  color: #7f9387;
+}
+.priority {
+  font-size: 10px;
+  background: #f0f3ef;
+  color: #7c8e81;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+.priority.high {
+  color: #a65b38;
+  background: #fff0e3;
+}
+.priority.low {
+  color: #5c7b8c;
+  background: #edf4f8;
+}
+.ticket-date {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.empty {
+  padding: 80px 25px;
+  text-align: center;
+  color: #7b9083;
+}
+.empty p {
+  margin: 15px 0;
+  line-height: 1.8;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #7b8d80;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+dialog {
+  width: min(720px, 94vw);
+  max-height: 88dvh;
+  overflow: auto;
+  border: 1px solid #dce5dc;
+  border-radius: 18px;
+  padding: 28px;
+  color: #294c40;
+  box-shadow: 0 30px 90px #172e332a;
+}
+dialog::backdrop {
+  background: #18372e66;
+  backdrop-filter: blur(3px);
+}
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9eee7;
+  margin-bottom: 20px;
+}
+.modal-heading h2 {
+  font-size: 20px;
+}
+.modal-heading button {
+  font-size: 22px;
+  line-height: 1;
+  border: 0;
+  padding: 4px 8px;
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.detail-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.detail-top .muted {
+  margin-left: auto;
+  font-size: 11px;
+}
+.detail-title {
+  font-size: 23px;
+  margin: 20px 0 14px;
+}
+.detail-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #87988a;
+}
+.detail-description {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 25px 0;
+  background: #f5f8f3;
+  padding: 18px;
+  border-radius: 10px;
+}
+.detail-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.assign-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #7a8a80;
+}
+.assign-label select {
+  width: auto;
+  margin: 0;
+}
+.detail-section {
+  border-top: 1px solid #e5ece3;
+  margin-top: 28px;
+  padding-top: 20px;
+}
+.detail-section h3 {
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.detail-section h3 small {
+  color: #99ab9d;
+  margin-left: 7px;
+}
+.comment {
+  padding: 14px 0;
+  border-bottom: 1px solid #eef2eb;
+}
+.comment > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+.comment time {
+  color: #99a69b;
+}
+.comment p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 7px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.events {
+  list-style: none;
+  padding: 0;
+  font-size: 11px;
+  color: #7b9082;
+}
+.events li {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 13px 0;
+}
+.events time {
+  white-space: nowrap;
+  font-size: 10px;
+}
+@media (max-width: 800px) {
+  .login-layout {
+    gap: 30px;
+    padding: 30px;
+    grid-template-columns: 1fr;
+  }
+  .login-intro {
+    padding: 10px;
+  }
+  .login-intro h1 {
+    font-size: 35px;
+  }
+  .flow {
+    margin-top: 20px;
+  }
+  .auth-card {
+    padding: 25px;
+  }
+  .ticket-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .app-shell {
+    padding: 0 22px;
+  }
+  .stats {
+    gap: 10px;
+  }
+  .stat {
+    padding: 15px;
+  }
+  .stat strong {
+    font-size: 23px;
+  }
+}
+@media (max-width: 540px) {
+  .ticket-list {
+    grid-template-columns: 1fr;
+  }
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .stats {
+    gap: 8px;
+  }
+  .stat {
+    padding: 14px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .stat strong {
+    width: 100%;
+    font-size: 25px;
+  }
+  .filters form {
+    flex-basis: 100%;
+  }
+  .account {
+    gap: 8px;
+  }
+  .account small {
+    display: none;
+  }
+  .events li {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .login-layout {
+    padding: 20px;
+  }
+  footer {
+    gap: 10px;
+    flex-direction: column;
+  }
+  dialog {
+    padding: 20px;
+  }
+  .detail-controls .primary {
+    width: 100%;
+  }
+}

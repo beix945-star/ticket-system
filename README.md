@@ -4,7 +4,15 @@
 
 一个可在本机演示的全栈工单系统：成员提交问题，管理员分配处理人，按「待处理 → 处理中 → 已完成」跟进，并保留留言与操作记录。
 
-**状态：核心功能已实现，持续完善中。** 项目用于学习和面试展示，尚未部署为公网服务，也不宣称已经达到企业生产系统的完整性。
+**状态：核心功能已实现，持续完善中。** 项目用于学习和面试展示。
+
+## 在线演示
+
+[打开工单台在线演示](https://yujia-ticket-system.braveraven32.chatgpt.site)
+
+首次访问点击页面顶部“准备演示账号”，然后以 `demo / Demo12345!` 或 `admin / Admin12345!` 登录。公开演示环境请只输入虚构数据。
+
+在线版使用 Cloudflare Workers + D1，复用 React 页面；本地版保留 Express + SQLite。部署适配源码和迁移见 [hosting/sites](hosting/sites)，两边账号和数据独立。在线版另有 2 项完整流程测试，可在该目录使用 Node.js 24 执行 `node --test tests/hosted.test.ts`。
 
 ## 界面预览
 

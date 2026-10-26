@@ -17,3 +17,5 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - run: pnpm lint
+      - run: node --test tests/hosted.test.ts
+        working-directory: hosting/sites
